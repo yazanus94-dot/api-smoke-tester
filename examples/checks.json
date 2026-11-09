@@ -1,0 +1,22 @@
+{
+  "base_url": "https://api.github.com",
+  "checks": [
+    {
+      "name": "API root is reachable",
+      "path": "/",
+      "headers": { "Accept": "application/vnd.github+json", "User-Agent": "apismoke" },
+      "expect": {
+        "status": 200,
+        "max_ms": 3000,
+        "headers": { "Content-Type": "application/json" },
+        "json_has": ["current_user_url", "repository_url"]
+      }
+    },
+    {
+      "name": "Unknown repo returns 404",
+      "path": "/repos/octocat/this-repo-does-not-exist-12345",
+      "headers": { "User-Agent": "apismoke" },
+      "expect": { "status": 404, "json": { "message": "Not Found" } }
+    }
+  ]
+}
