@@ -18,4 +18,4 @@ python -m unittest discover -s tests -v
 - Add or update tests for every behavior change.
 - Keep the project free of third-party runtime dependencies.
 - Use [Conventional Commits](https://www.conventionalcommits.org/) for commit messages (`feat:`, `fix:`, `docs:` ...).
-- Make sure the full test suite passes on Python 3.9+.
+- Make sure the full test suite passes on Python 3.10+.

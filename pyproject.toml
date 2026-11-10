@@ -7,7 +7,7 @@ name = "api-smoke-tester"
 version = "0.1.0"
 description = "Declarative HTTP API smoke tests defined in JSON, with zero dependencies."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "Yazan Aljabari" }]
 keywords = ["testing", "api", "smoke-test", "http", "qa"]

@@ -1,7 +1,7 @@
 # api-smoke-tester
 
 [![CI](https://github.com/yazanus94-dot/api-smoke-tester/actions/workflows/ci.yml/badge.svg)](https://github.com/yazanus94-dot/api-smoke-tester/actions/workflows/ci.yml)
-![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 Declarative HTTP API smoke tests. Describe your endpoints and expectations in a JSON file, run one command, get a pass/fail report and an exit code your pipeline can trust.
