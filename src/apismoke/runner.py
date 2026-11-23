@@ -6,7 +6,7 @@ import time
 import urllib.error
 import urllib.request
 from dataclasses import dataclass, field
-from typing import Any, List
+from typing import Any
 
 _MISSING = object()
 
@@ -17,7 +17,7 @@ class CheckResult:
     passed: bool
     status: int = 0
     elapsed_ms: float = 0.0
-    failures: List[str] = field(default_factory=list)
+    failures: list[str] = field(default_factory=list)
 
     def as_dict(self) -> dict:
         return {"name": self.name, "passed": self.passed, "status": self.status,
@@ -58,7 +58,7 @@ def run_check(base_url: str, check: dict, timeout: float = 10.0) -> CheckResult:
     result = CheckResult(check["name"], passed=False)
     try:
         status, headers, body, elapsed = _fetch(base_url, check, timeout)
-    except Exception as exc:  # network errors, timeouts, bad URLs
+    except (urllib.error.URLError, OSError, ValueError) as exc:  # network errors, timeouts, bad URLs
         result.failures.append(f"request failed: {exc}")
         return result
 
@@ -106,6 +106,6 @@ def run_check(base_url: str, check: dict, timeout: float = 10.0) -> CheckResult:
     return result
 
 
-def run_all(config: dict, timeout: float = 10.0, base_url: str = "") -> List[CheckResult]:
+def run_all(config: dict, timeout: float = 10.0, base_url: str = "") -> list[CheckResult]:
     base = base_url or config.get("base_url", "")
     return [run_check(base, check, timeout) for check in config["checks"]]

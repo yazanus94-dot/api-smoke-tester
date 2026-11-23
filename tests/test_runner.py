@@ -1,7 +1,8 @@
 import unittest
 
-from apismoke.runner import lookup, run_check, _MISSING
 from server import TestServer
+
+from apismoke.runner import _MISSING, lookup, run_check
 
 
 class LookupTests(unittest.TestCase):

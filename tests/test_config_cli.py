@@ -5,9 +5,10 @@ import os
 import tempfile
 import unittest
 
+from server import TestServer
+
 from apismoke.cli import main
 from apismoke.config import ConfigError, expand_env, load_config, validate
-from server import TestServer
 
 
 def write(directory, payload, name="checks.json"):
